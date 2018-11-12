@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .header-movie{
         width: 100%;
         height: 60px;

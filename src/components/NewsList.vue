@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .newsList{
         padding: 5px;
         font-size: 10px;

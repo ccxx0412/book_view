@@ -4,14 +4,12 @@
             <movie-index-header></movie-index-header>
         </div>
         <div class="contentMain">
-            <div>
-                <div class="contentText">
-                    <ul class="cont-ul">
-                        <movies-list></movies-list>
-                    </ul>
-                </div>
-            </div>
+                <h1>文章题目</h1>
+                <div>文章的发布时间</div>
+                <div class="contentText">文章的内容</div>
         </div>
+            <!-- :movie_id:movie_id -->
+            <comment></comment>
         <div>
             <common-footer></common-footer>
         </div>
@@ -21,12 +19,14 @@
 <script>
 import MovieIndexHeader from '../components/MovieIndexHeader'
 import CommonFooter from '../components/CommonFooter'
-import MoviesList from '../components/MoviesList'
+import Comment from '../components/Comment'
+let article_id=0
 export default {
+    name:'newDetail',
     components:{
         MovieIndexHeader,
         CommonFooter,
-        MoviesList
+        Comment
     }
 }
 </script>

@@ -3,6 +3,10 @@ import Router from 'vue-router'
 import IndexPage from '@/pages/index'
 import MovieList from '@/pages/moviesList'
 import MovieDetail from '@/pages/movieDetail'
+import NewDetail from '@/pages/newDetail'
+import LoginPage from '@/pages/loginPage'
+import RegisterPage from '@/pages/registerPage'
+import FindpasswordPage from '@/pages/findpasswordPage'
 
 Vue.use(Router)
 
@@ -20,6 +24,22 @@ export default new Router({
     {
       path: '/movieDetail',
       component: MovieDetail
+    },
+    {
+      path: '/newDetail',
+      component: NewDetail
+    },
+    {
+      path: '/loginPage',
+      component: LoginPage
+    },
+    {
+      path: '/registerPage',
+      component: RegisterPage
+    },
+    {
+      path: '/findpasswordPage',
+      component: FindpasswordPage
     }
   ]
 })

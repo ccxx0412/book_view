@@ -20,10 +20,14 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            context:''
+        }
+    }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

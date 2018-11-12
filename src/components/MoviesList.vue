@@ -12,7 +12,7 @@
 export default {}
 </script>
 
-<style>
+<style scoped>
     .movieList{
         padding: 5px;
         border-bottom: 1px dashed #ababab;
