@@ -7,7 +7,10 @@
             <div>
                 <div class="contentText">
                     <ul class="cont-ul">
-                        <movies-list></movies-list>
+                        <movies-list v-for="item in moviesItems" :key="item._id" :id="item._id" 
+                        :movieName="item.movieName"
+                        :movieTime="item.movieTime"
+                        ></movies-list>
                     </ul>
                 </div>
             </div>
@@ -23,10 +26,23 @@ import MovieIndexHeader from '../components/MovieIndexHeader'
 import CommonFooter from '../components/CommonFooter'
 import MoviesList from '../components/MoviesList'
 export default {
+    name:'movieList',
+    data(){
+        return{
+            moviesItems:[]
+        }
+    },
     components:{
         MovieIndexHeader,
         CommonFooter,
         MoviesList
+    },
+    created(){
+        // 获取所有电影
+        this.axios.get(this.url+'/movie/list').then((res)=>{
+            this.moviesItems=res.data.data
+            console.log(res.data)
+        })
     }
 }
 </script>

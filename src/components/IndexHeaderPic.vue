@@ -1,10 +1,10 @@
 <template>
     <div class="headerPic">
         <div>
-            <!-- {{recommendTitle}} -->
-            <p class="imgTitle">111</p>
-            <a href="baidu.com">
-                <img src="" class="headerImg">
+            
+            <p class="imgTitle">{{recommendTitle}}</p>
+            <a :href="recommendSrc">
+                <img :src="recommendImg" class="headerImg">
             </a>
         </div>
     </div>
@@ -12,7 +12,9 @@
 
 <script>
 export default {
-
+    props:[
+        'recommendImg','recommendSrc','recommendTitle',
+    ]
 }
 </script>
 
