@@ -4,12 +4,11 @@
             <movie-index-header></movie-index-header>
         </div>
         <div class="contentMain">
-                <h1>文章题目</h1>
-                <div>文章的发布时间</div>
-                <div class="contentText">文章的内容</div>
-        </div>
-            <!-- :movie_id:movie_id -->
-            <comment></comment>
+                <h1>{{detail.articleTitle}}</h1>
+                <div>{{detail.articleTime}}</div>
+                <div class="contentText">{{detail.articleContext}}</div>
+        </div> 
+            <comment :movie_id="article_id"></comment>
         <div>
             <common-footer></common-footer>
         </div>
@@ -23,10 +22,27 @@ import Comment from '../components/Comment'
 let article_id=0
 export default {
     name:'newDetail',
+    data(){
+        return{
+            article_id:'',
+            detail:{}
+        }
+    },
     components:{
         MovieIndexHeader,
         CommonFooter,
         Comment
+    },
+    created(){
+        article_id=this.$route.query.id
+        this.article_id=article_id
+        this.axios.post(this.url+'/articleDetail',{
+            article_id:article_id
+        }).then((res)=>{
+            console.log(res.data)
+            this.detail=res.data.data
+            this.detail.articleTime=new Date(parseInt(this.detail.articleTime)).toLocaleString()
+        })
     }
 }
 </script>

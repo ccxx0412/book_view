@@ -19,7 +19,7 @@
             </div>
         </div>
         <div>
-            <comment :movid_id="movie_id"></comment>
+            <comment :movie_id="movie_id"></comment>
         </div>
         <div>
             <common-footer></common-footer>
@@ -78,7 +78,22 @@ export default {
           }
         })
     },
-    movieDownload() {}
+    movieDownload() {
+      this.axios
+        .post(this.url + '/movie/download', {
+          movie_id: movie_id
+        })
+        .then((res)=>{
+          // let that = this
+          console.log(res.data)
+          if (res.data.status == 1) {
+            alert(res.data.message)
+          }else{
+            // 跳转至下载链接
+            location.href=res.data.data
+          }
+        })
+    }
   }
 }
 </script>
