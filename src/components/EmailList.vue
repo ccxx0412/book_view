@@ -1,20 +1,20 @@
 <template>
     <div class="message">
         <div>
-            题目
+            {{title}}
         </div>
         <div>
-            来源用户
+            {{fromUser}}
         </div>
         <div>
-            一条的内容
+            {{context}}
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    props:['title','fromUser','context']
 }
 </script>
 

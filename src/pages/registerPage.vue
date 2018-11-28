@@ -4,26 +4,26 @@
             <div>
                 <div class="box">
                     <label for="">输入用户名:</label>
-                    <input type="text" placeholder="用户名">
+                    <input v-model="username" placeholder="用户名">
                 </div>
                 <div class="box">
                     <label for="">输入密码:</label>
-                    <input type="text" placeholder="密码">
+                    <input v-model="password" placeholder="密码">
                 </div>
                 <div class="box">
                     <label for="">重复输入密码:</label>
-                    <input type="text" placeholder="密码">
+                    <input v-model="rePassword" placeholder="密码">
                 </div>
                 <div class="box">
                     <label for="">输入邮箱:</label>
-                    <input type="text" placeholder="邮箱">
+                    <input v-model="userMail" placeholder="邮箱">
                 </div>
                 <div class="box">
                     <label for="">输入手机:</label>
-                    <input type="text" placeholder="手机">
+                    <input v-model="userPhone" placeholder="手机">
                 </div>
                 <div class="box">
-                    <button>注册</button>
+                    <button @click="userRegister">注册</button>
                 </div>
             </div>
         </div>
@@ -34,7 +34,34 @@
 export default {
     data(){
         return{
-
+            username:'',
+            password:'',
+            rePassword:'',
+            userMail:'',
+            userPhone:''
+        }
+    },
+    methods:{
+        userRegister(){
+            if(this.password!=this.rePassword){
+                alert('两次密码不一致')
+            }else{
+                let sendData={
+                    username:this.username,
+                    password:this.password,
+                    userMail:this.userMail,
+                    userPhone:this.userPhone
+                }
+                this.axios.post(this.url+'/users/register',sendData).then((res) => {
+                    console.log(res.data)
+                    if(res.data.status==1){
+                        alert(res.data.message)
+                    }else{
+                        alert(res.data.message)
+                        this.$router.go(-1)
+                    }
+                })
+            }
         }
     }
 }
